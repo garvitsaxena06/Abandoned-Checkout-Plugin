@@ -5,7 +5,6 @@ import colors from 'colors'
 import connectDB from './config/db.js'
 
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
-import { sendMail } from './utils/sendMail.js'
 
 dotenv.config()
 
@@ -18,21 +17,10 @@ app.use(morgan('tiny'))
 
 app.get('/', (req, res) => {
   res.send('API is running...')
-  const options = {
-    email: 'garvitsaxena06@gmail.com',
-    phone: 8602438440,
-  }
-  sendMail(options, (err, data) => {
-    if (err) {
-      console.error({
-        success: false,
-        message: 'Something went wrong!',
-        error: err,
-      })
-    } else {
-      console.log({ success: true, message: 'Email sent', data })
-    }
-  })
+  // const options = {
+  //   email: 'garvitsaxena06@gmail.com',
+  //   phone: 8602438440,
+  // }
 })
 
 app.use(notFound)
