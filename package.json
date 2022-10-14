@@ -1,0 +1,19 @@
+{
+  "name": "abandoned-checkout",
+  "version": "1.0.0",
+  "description": "Abandoned checkout recovery plugin for an e-commerce platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garvitsaxena06/Abandoned-Checkout-Plugin.git"
+  },
+  "author": "Garvit Saxena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garvitsaxena06/Abandoned-Checkout-Plugin/issues"
+  },
+  "homepage": "https://github.com/garvitsaxena06/Abandoned-Checkout-Plugin#readme"
+}
