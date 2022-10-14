@@ -45,27 +45,18 @@ export const scheduleEvents = asyncHandler(async (req, res) => {
   })
 
   if (checkout) {
-    const schedule1 = `${checkout._id}@5secs`
-    const schedule2 = `${checkout._id}@10secs`
-    const schedule3 = `${checkout._id}@15secs`
+    const schedule1 = `${checkout._id}@30mins`
+    const schedule2 = `${checkout._id}@1day`
+    const schedule3 = `${checkout._id}@3days`
 
-    const date1 = moment()
-      .add(5000, 'milliseconds')
-      .utcOffset(TIME_ZONE)
-      .format()
-    const date2 = moment()
-      .add(10000, 'milliseconds')
-      .utcOffset(TIME_ZONE)
-      .format()
-    const date3 = moment()
-      .add(15000, 'milliseconds')
-      .utcOffset(TIME_ZONE)
-      .format()
+    const date1 = moment().add(30, 'm').utcOffset(TIME_ZONE).format()
+    const date2 = moment().add(1, 'day').utcOffset(TIME_ZONE).format()
+    const date3 = moment().add(3, 'days').utcOffset(TIME_ZONE).format()
 
     checkout.scheduledMessages = [
-      { id: schedule1, type: 'After 5 secs', time: date1, sent: false },
-      { id: schedule2, type: 'After 10 secs', time: date2, sent: false },
-      { id: schedule3, type: 'After 15 secs', time: date3, sent: false },
+      { id: schedule1, type: 'After 30 mins', time: date1, sent: false },
+      { id: schedule2, type: 'After 1 day', time: date2, sent: false },
+      { id: schedule3, type: 'After 3 days', time: date3, sent: false },
     ]
 
     const updatedCheckout = await checkout.save()
