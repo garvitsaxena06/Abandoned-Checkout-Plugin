@@ -104,7 +104,6 @@ export const scheduleEvents = asyncHandler(async (req, res) => {
           el.sent = true
         }
       })
-      updatedCheckout.scheduleActive = false
       await updatedCheckout.save()
       // console.log('Job 3 sent!')
       sendASchedule({ email, phone })
@@ -120,13 +119,13 @@ export const cancelScheduledEvents = asyncHandler(async (req, res) => {
 
   const checkouts = await Checkout.find({ email })
 
-  checkouts.forEach((checkout) => {
+  checkouts.forEach(async (checkout) => {
     checkout.scheduledMessages?.forEach((el) => {
       schedule.cancelJob(el.id)
     })
+    checkout.scheduleActive = false
+    await checkout.save()
   })
-
-  await Checkout.deleteMany({ email })
 
   res
     .status(200)
