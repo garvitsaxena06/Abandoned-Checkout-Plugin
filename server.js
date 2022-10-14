@@ -4,6 +4,8 @@ import morgan from 'morgan'
 import colors from 'colors'
 import connectDB from './config/db.js'
 
+import checkoutRoutes from './routes/checkoutRoutes.js'
+
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -22,6 +24,8 @@ app.get('/', (req, res) => {
   //   phone: 8602438440,
   // }
 })
+
+app.use('/api/v1/checkout', checkoutRoutes)
 
 app.use(notFound)
 

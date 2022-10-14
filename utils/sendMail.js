@@ -579,15 +579,3 @@ export const sendMail = (options, cb = () => {}) => {
     else cb(null, data)
   })
 }
-
-// sendMail(options, (err, data) => {
-//   if (err) {
-//     console.error({
-//       success: false,
-//       message: 'Something went wrong!',
-//       error: err,
-//     })
-//   } else {
-//     console.log({ success: true, message: 'Email sent', data })
-//   }
-// })

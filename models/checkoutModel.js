@@ -5,7 +5,6 @@ const scheduledMessagesSchema = mongoose.Schema(
     id: {
       type: String,
       required: true,
-      unique: true,
     },
     type: {
       type: String,
@@ -31,7 +30,6 @@ const checkoutSchema = mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
     },
     phone: {
       type: String,

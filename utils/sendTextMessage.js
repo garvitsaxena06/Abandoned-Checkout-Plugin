@@ -13,15 +13,3 @@ export const sendMessage = (options, cb = () => {}) => {
     .then((value) => cb(null, value))
     .catch((err) => cb(err, null))
 }
-
-// sendMessage(options, (err, data) => {
-//   if (err) {
-//     console.error({
-//       success: false,
-//       message: 'Something went wrong!',
-//       error: err,
-//     })
-//   } else {
-//     console.log({ success: true, message: 'Text message sent', data })
-//   }
-// })
